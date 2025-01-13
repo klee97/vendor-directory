@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useColorScheme } from '@mui/material/styles';
 import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectProps } from '@mui/material/Select';
+import Select, { SelectChangeEvent, SelectProps } from '@mui/material/Select';
 
 export default function ColorModeSelect(props: SelectProps) {
   const { mode, setMode } = useColorScheme();
@@ -11,7 +11,7 @@ export default function ColorModeSelect(props: SelectProps) {
   return (
     <Select
       value={mode}
-      onChange={(event) =>
+      onChange={(event: SelectChangeEvent<unknown>) =>
         setMode(event.target.value as 'system' | 'light' | 'dark')
       }
       SelectDisplayProps={{
